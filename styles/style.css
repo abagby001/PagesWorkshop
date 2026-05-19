@@ -3,11 +3,12 @@
    ========================================================================== */
    body {
     font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
-    background-color: #f8fafc; /* Ultra-clean, modern light gray background */
+    background-color: #f8fafc;
     color: #1e293b;
     margin: 0;
     padding: 40px 20px;
     line-height: 1.5;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth fade effect */
 }
 
 .container {
@@ -59,7 +60,7 @@
 }
 
 #searchInput:focus {
-    border-color: #3b82f6; /* Modern Blue accent color */
+    border-color: #3b82f6;
     box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
 }
 
@@ -89,7 +90,7 @@
 }
 
 .tag-btn.active {
-    background: #0f172a; /* Deep elegant slate for active state */
+    background: #0f172a;
     color: #ffffff;
     border-color: #0f172a;
 }
@@ -99,7 +100,6 @@
    ========================================================================== */
 .resources-grid {
     display: grid;
-    /* Automatically calculates how many cards fit perfectly across the screen */
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
     gap: 24px;
 }
@@ -114,11 +114,9 @@
     text-align: center;
     border: 1px solid rgba(226, 232, 240, 0.8);
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03), 0 2px 4px -2px rgba(0, 0, 0, 0.03);
-    /* Creates a smooth, fluid animation curve when hovering */
-    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s ease;
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s ease, background-color 0.3s ease, border-color 0.3s ease;
 }
 
-/* Elegant 3D Lift effect upon user hover interaction */
 .resource-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.06), 0 8px 10px -6px rgba(0, 0, 0, 0.03);
@@ -166,6 +164,7 @@
     padding: 24px;
     border: 1px solid rgba(226, 232, 240, 0.8);
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .project-card h3 {
@@ -188,7 +187,6 @@
     transition: transform 0.3s ease;
 }
 
-/* Image zoom effect inside its bounding box when hovered */
 .projectLink:hover .projectImage {
     transform: scale(1.03);
 }
@@ -198,4 +196,93 @@
     font-size: 0.95rem;
     color: #475569;
     line-height: 1.6;
+}
+
+/* ==========================================================================
+   6. FLOATING THEME TOGGLE BUTTON CONTROL
+   ========================================================================== */
+.theme-toggle-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background-color: #0f172a;
+    color: #ffffff;
+    border: none;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    z-index: 1000;
+}
+
+.theme-toggle-btn:hover {
+    transform: scale(1.1);
+}
+
+/* ==========================================================================
+   7. DARK THEME STYLES (ACTIVATED VIA JAVASCRIPT)
+   ========================================================================== */
+body.dark-theme {
+    background-color: #0b0f19;
+    color: #cbd5e1;
+}
+
+body.dark-theme .pageTitle {
+    color: #f8fafc;
+}
+
+body.dark-theme .innerTitle {
+    color: #e2e8f0;
+    border-bottom-color: #1e293b;
+}
+
+body.dark-theme #searchInput {
+    background-color: #1e293b;
+    border-color: #334155;
+    color: #f8fafc;
+}
+
+body.dark-theme .tag-btn {
+    background: #1e293b;
+    border-color: #334155;
+    color: #94a3b8;
+}
+
+body.dark-theme .tag-btn:hover {
+    color: #f8fafc;
+    background-color: #334155;
+}
+
+body.dark-theme .tag-btn.active {
+    background: #3b82f6;
+    color: #ffffff;
+    border-color: #3b82f6;
+}
+
+body.dark-theme .resource-card, 
+body.dark-theme .project-card {
+    background: #111827;
+    border-color: rgba(51, 65, 85, 0.5);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-theme .resource-card h3,
+body.dark-theme .project-card h3 {
+    color: #f8fafc;
+}
+
+body.dark-theme .resource-card p,
+body.dark-theme .projectDescription {
+    color: #94a3b8;
+}
+
+body.dark-theme .theme-toggle-btn {
+    background-color: #f8fafc;
+    color: #0f172a;
 }

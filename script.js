@@ -48,7 +48,6 @@ document.addEventListener("DOMContentLoaded", () => {
             // Look inside current active section card collections
             allCards.forEach(card => {
                 const title = card.querySelector("h3")?.textContent.toLowerCase() || "";
-                // Capture text content inside either <p> or custom description blocks
                 const desc = card.querySelector("p")?.textContent.toLowerCase() || "";
                 const matchesSearch = title.includes(searchText) || desc.includes(searchText);
 
@@ -65,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 3. Bind Actions
+    // 3. Bind Actions for Search & Filter Tags
     if (searchInput) {
         searchInput.addEventListener("input", filterItems);
     }
@@ -76,5 +75,35 @@ document.addEventListener("DOMContentLoaded", () => {
             e.target.classList.add("active");
             filterItems();
         });
+    });
+
+    // 4. DARK MODE THEME SWITCHER LOGIC
+    const themeBtn = document.createElement("button");
+    themeBtn.className = "theme-toggle-btn";
+    themeBtn.setAttribute("aria-label", "Toggle dark theme");
+    themeBtn.innerHTML = "🌙"; 
+    document.body.appendChild(themeBtn);
+
+    // Check if user has used dark mode previously on this browser session
+    const currentTheme = localStorage.getItem("portfolio-theme");
+    if (currentTheme === "dark") {
+        document.body.classList.add("dark-theme");
+        themeBtn.innerHTML = "☀️"; 
+    }
+
+    // Toggle the theme class layout state on user click
+    themeBtn.addEventListener("click", () => {
+        document.body.classList.toggle("dark-theme");
+        
+        let theme = "light";
+        if (document.body.classList.contains("dark-theme")) {
+            theme = "dark";
+            themeBtn.innerHTML = "☀️";
+        } else {
+            themeBtn.innerHTML = "🌙";
+        }
+        
+        // Save state utility configuration to browser memory
+        localStorage.setItem("portfolio-theme", theme);
     });
 });
