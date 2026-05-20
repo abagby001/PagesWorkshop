@@ -1,11 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
     const pageTitle = document.querySelector(".pageTitle");
 
-    // 1. Generate and Inject the Filter controls block
+    // 1. Generate and Inject the Filter controls block right below the main title
     const controlsDiv = document.createElement("div");
     controlsDiv.className = "search-controls";
     controlsDiv.innerHTML = `
-        <input type="text" id="searchInput" placeholder="🔍 Search resources (e.g., Figma, Code)...">
+        <input type="text" id="searchInput" placeholder="🔍 Search resources (e.g., Figma, Code, Certs)...">
         <div class="filter-tags">
             <button class="tag-btn active" data-filter="all">All Items</button>
             <button class="tag-btn" data-filter="software">Software</button>
@@ -34,8 +34,11 @@ document.addEventListener("DOMContentLoaded", () => {
             const certCards = section.querySelectorAll(".cert-card");
             const allCards = [...resourceCards, ...projectCards, ...certCards];
 
-            // Map sections based on their order of appearance in your HTML document:
-            // Index 0 = Software, Index 1 = Website Resources, Index 2 = Certifications, Index 3 = My Projects
+            // Map sections based on their EXACT order of appearance in your HTML document:
+            // Index 0 = Software Resources
+            // Index 1 = Website Resources
+            // Index 2 = Certifications & Badges
+            // Index 3 = My Projects
             const matchesTag = 
                 activeTag === "all" ||
                 (activeTag === "software" && index === 0) ||
@@ -55,10 +58,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 const matchesSearch = title.includes(searchText) || desc.includes(searchText);
 
                 if (matchesSearch) {
-                    card.style.display = "flex"; // Using flex keeps the cert alignment clean
-                    if (card.classList.contains("resource-card") || card.classList.contains("project-card")) {
-                        // Keep block rules for traditional grids
-                        if (!card.classList.contains("cert-card")) card.style.display = "block";
+                    // Keep layout clean based on card types
+                    if (card.classList.contains("cert-card")) {
+                        card.style.display = "flex"; 
+                    } else {
+                        card.style.display = "block";
                     }
                     sectionHasVisibleItems = true;
                 } else {
