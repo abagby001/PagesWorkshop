@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <button class="tag-btn active" data-filter="all">All Items</button>
             <button class="tag-btn" data-filter="software">Software</button>
             <button class="tag-btn" data-filter="website">Web Tools</button>
+            <button class="tag-btn" data-filter="certs">Certifications</button>
             <button class="tag-btn" data-filter="projects">My Projects</button>
         </div>
     `;
@@ -30,15 +31,17 @@ document.addEventListener("DOMContentLoaded", () => {
             let sectionHasVisibleItems = false;
             const resourceCards = section.querySelectorAll(".resource-card");
             const projectCards = section.querySelectorAll(".project-card");
-            const allCards = [...resourceCards, ...projectCards];
+            const certCards = section.querySelectorAll(".cert-card");
+            const allCards = [...resourceCards, ...projectCards, ...certCards];
 
-            // Map sections based on their order of appearance in your HTML document
-            // Index 0 = Software, Index 1 = Website Resources, Index 2 = My Projects
+            // Map sections based on their order of appearance in your HTML document:
+            // Index 0 = Software, Index 1 = Website Resources, Index 2 = Certifications, Index 3 = My Projects
             const matchesTag = 
                 activeTag === "all" ||
                 (activeTag === "software" && index === 0) ||
                 (activeTag === "website" && index === 1) ||
-                (activeTag === "projects" && index === 2);
+                (activeTag === "certs" && index === 2) ||
+                (activeTag === "projects" && index === 3);
 
             if (!matchesTag) {
                 section.style.display = "none";
@@ -52,7 +55,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 const matchesSearch = title.includes(searchText) || desc.includes(searchText);
 
                 if (matchesSearch) {
-                    card.style.display = "block";
+                    card.style.display = "flex"; // Using flex keeps the cert alignment clean
+                    if (card.classList.contains("resource-card") || card.classList.contains("project-card")) {
+                        // Keep block rules for traditional grids
+                        if (!card.classList.contains("cert-card")) card.style.display = "block";
+                    }
                     sectionHasVisibleItems = true;
                 } else {
                     card.style.display = "none";
@@ -84,14 +91,12 @@ document.addEventListener("DOMContentLoaded", () => {
     themeBtn.innerHTML = "🌙"; 
     document.body.appendChild(themeBtn);
 
-    // Check if user has used dark mode previously on this browser session
     const currentTheme = localStorage.getItem("portfolio-theme");
     if (currentTheme === "dark") {
         document.body.classList.add("dark-theme");
         themeBtn.innerHTML = "☀️"; 
     }
 
-    // Toggle the theme class layout state on user click
     themeBtn.addEventListener("click", () => {
         document.body.classList.toggle("dark-theme");
         
@@ -103,7 +108,6 @@ document.addEventListener("DOMContentLoaded", () => {
             themeBtn.innerHTML = "🌙";
         }
         
-        // Save state utility configuration to browser memory
         localStorage.setItem("portfolio-theme", theme);
     });
 });

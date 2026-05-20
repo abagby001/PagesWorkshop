@@ -286,3 +286,98 @@ body.dark-theme .theme-toggle-btn {
     background-color: #f8fafc;
     color: #0f172a;
 }
+
+/* ==========================================================================
+   8. CERTIFICATIONS LAYOUT SETUP
+   ========================================================================== */
+   .certifications-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+}
+
+.cert-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03);
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s ease, background-color 0.3s ease;
+}
+
+.cert-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.08);
+}
+
+.certIcon {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+.cert-content h3 {
+    margin: 0 0 4px 0;
+    font-size: 1.15rem;
+    color: #0f172a;
+}
+
+.cert-issuer {
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #3b82f6; /* Accent color for Issuer */
+}
+
+.cert-date {
+    margin: 2px 0 10px 0;
+    font-size: 0.85rem;
+    color: #64748b;
+}
+
+.certLink-btn {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #475569;
+    text-decoration: none;
+    border: 1px solid #cbd5e1;
+    padding: 4px 12px;
+    border-radius: 14px;
+    transition: all 0.2s ease;
+}
+
+.certLink-btn:hover {
+    background-color: #0f172a;
+    color: #ffffff;
+    border-color: #0f172a;
+}
+
+/* Dark Mode Extensions for Certifications */
+body.dark-theme .cert-card {
+    background: #111827;
+    border-color: rgba(51, 65, 85, 0.5);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-theme .cert-card h3 {
+    color: #f8fafc;
+}
+
+body.dark-theme .cert-date {
+    color: #94a3b8;
+}
+
+body.dark-theme .certLink-btn {
+    color: #cbd5e1;
+    border-color: #475569;
+}
+
+body.dark-theme .certLink-btn:hover {
+    background-color: #f8fafc;
+    color: #0f172a;
+    border-color: #f8fafc;
+}
