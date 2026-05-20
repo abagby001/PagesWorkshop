@@ -1,7 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const pageTitle = document.querySelector(".pageTitle");
+    // 1. Target the main page title header safely
+    const pageTitle = document.querySelector(".pageTitle") || document.querySelector("h1");
+    const container = document.querySelector(".container");
 
-    // 1. Generate and Inject the Filter controls block right below the main title
+    // 2. Generate and Inject the Filter controls block
     const controlsDiv = document.createElement("div");
     controlsDiv.className = "search-controls";
     controlsDiv.innerHTML = `
@@ -14,11 +16,15 @@ document.addEventListener("DOMContentLoaded", () => {
             <button class="tag-btn" data-filter="projects">My Projects</button>
         </div>
     `;
+    
+    // Inject at the top under the header title cleanly
     if (pageTitle) {
         pageTitle.insertAdjacentElement("afterend", controlsDiv);
+    } else if (container) {
+        container.insertBefore(controlsDiv, container.firstChild);
     }
 
-    // 2. Query target content structures
+    // 3. Query target content structures
     const sections = document.querySelectorAll(".resourceContainer");
     const searchInput = document.getElementById("searchInput");
     const tagButtons = document.querySelectorAll(".tag-btn");
@@ -34,11 +40,8 @@ document.addEventListener("DOMContentLoaded", () => {
             const certCards = section.querySelectorAll(".cert-card");
             const allCards = [...resourceCards, ...projectCards, ...certCards];
 
-            // Map sections based on their EXACT order of appearance in your HTML document:
-            // Index 0 = Software Resources
-            // Index 1 = Website Resources
-            // Index 2 = Certifications & Badges
-            // Index 3 = My Projects
+            // Index mapping based on your section positions:
+            // 0 = Software, 1 = Web Tools, 2 = Certifications, 3 = Projects
             const matchesTag = 
                 activeTag === "all" ||
                 (activeTag === "software" && index === 0) ||
@@ -51,14 +54,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            // Look inside current active section card collections
             allCards.forEach(card => {
                 const title = card.querySelector("h3")?.textContent.toLowerCase() || "";
                 const desc = card.querySelector("p")?.textContent.toLowerCase() || "";
                 const matchesSearch = title.includes(searchText) || desc.includes(searchText);
 
                 if (matchesSearch) {
-                    // Keep layout clean based on card types
                     if (card.classList.contains("cert-card")) {
                         card.style.display = "flex"; 
                     } else {
@@ -70,12 +71,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             });
 
-            // Show section only if search conditions match inner contents
             section.style.display = sectionHasVisibleItems ? "block" : "none";
         });
     }
 
-    // 3. Bind Actions for Search & Filter Tags
+    // 4. Bind Actions for Search & Filter Tags
     if (searchInput) {
         searchInput.addEventListener("input", filterItems);
     }
@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // 4. DARK MODE THEME SWITCHER LOGIC
+    // 5. DARK MODE THEME SWITCHER LOGIC
     const themeBtn = document.createElement("button");
     themeBtn.className = "theme-toggle-btn";
     themeBtn.setAttribute("aria-label", "Toggle dark theme");
