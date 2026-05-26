@@ -1,3 +1,31 @@
+// ==========================================================================
+// SUPABASE REAL-TIME VISITOR LOGGING SYSTEM
+// ==========================================================================
+// 1. Swap out these placeholders with your actual Supabase Project Dashboard Keys
+const SUPABASE_URL = "https://supabase.com/dashboard/project/cgmsdkdqemuzddzaftul/settings/api-keys/legacy";
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNnbXNka2RxZW11emRkemFmdHVsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk3OTUyMjMsImV4cCI6MjA5NTM3MTIyM30.d6kIkKhLqdMvgTzRnmUj8DF7dwY0aHSBCkpCFtWLUU8";
+
+// 2. Initialize the Supabase database connector client
+const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+// 3. Automatically send visitor log tracking markers on window frame page load
+async function logVisitorActivity() {
+    try {
+        const { data, error } = await supabase
+            .from('visitors')
+            .insert([
+                { page_url: window.location.href }
+            ]);
+            
+        if (error) console.error("Supabase Log Error:", error);
+    } catch (err) {
+        console.error("Database connection failed:", err);
+    }
+}
+
+// Fire the database insert request right away
+logVisitorActivity();
+
 document.addEventListener("DOMContentLoaded", () => {
     // 1. Target the main page title header safely
     const pageTitle = document.querySelector(".pageTitle") || document.querySelector("h1");
