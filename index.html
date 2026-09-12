@@ -305,7 +305,7 @@
 <!-- 📸 PHOTOGRAPHY SHOWCASE -->
 <section class="resourceContainer">
     <h2 class="innerTitle">Photography Showcase</h2>
-
+<div class="projects-grid">
    <!-- Featured Image 1 -->
 <div class="photo-card">
     <img src="images/IMG_1616.JPG" alt="Bird sitting on a wooden post">
@@ -348,5 +348,83 @@
     </footer>
 
     <script src="./script.js"></script>
+    <!-- Lightbox Modal Overlay -->
+<div id="lightboxModal" class="lightbox" onclick="closeLightbox()">
+<span class="close-btn">&times;</span>
+<img id="lightboxImg" src="" alt="Enlarged Photo">
+<div id="lightboxCaption"></div>
+</div>
+
+<style>
+.photo-grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+gap: 16px;
+margin-top: 20px;
+}
+.photo-card {
+position: relative;
+overflow: hidden;
+border-radius: 8px;
+cursor: pointer;
+background: #f0f0f0;
+aspect-ratio: 4/3;
+}
+.photo-card img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+transition: transform 0.3s ease;
+}
+.photo-card:hover img {
+transform: scale(1.05);
+}
+.lightbox {
+display: none;
+position: fixed;
+z-index: 1000;
+left: 0;
+top: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0,0,0,0.9);
+text-align: center;
+padding: 40px 20px;
+}
+.lightbox img {
+max-width: 90%;
+max-height: 80vh;
+margin-top: 5vh;
+border-radius: 4px;
+}
+.close-btn {
+position: absolute;
+top: 20px;
+right: 35px;
+color: #fff;
+font-size: 40px;
+font-weight: bold;
+cursor: pointer;
+}
+#lightboxCaption {
+color: #fff;
+margin-top: 15px;
+font-size: 1.2rem;
+}
+</style>
+
+<script>
+function openLightbox(imgSrc, captionText) {
+const modal = document.getElementById('lightboxModal');
+const modalImg = document.getElementById('lightboxImg');
+const caption = document.getElementById('lightboxCaption');
+modal.style.display = "block";
+modalImg.src = imgSrc;
+caption.innerHTML = captionText;
+}
+function closeLightbox() {
+document.getElementById('lightboxModal').style.display = "none";
+}
+</script>
 </body>
 </html>
