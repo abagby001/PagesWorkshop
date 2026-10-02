@@ -56,6 +56,21 @@ nav a:hover {
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
 }
 
+/* Specific rules to keep decorative branding graphics under control */
+.brand-logo {
+    max-width: 150px;  /* Adjust this width to make the logo look ideal on your page */
+    height: auto;
+    object-fit: contain !important; /* Prevents it from clipping or stretching */
+    margin: 20px auto; /* Centers it nicely if it's sitting on its own line */
+    display: block;
+}
+
+.octocat-avatar {
+    max-width: 120px;  /* Keeps the GitHub icon clean and compact */
+    height: auto;
+    object-fit: contain !important;
+}
+
 .gallery-item img {
     width: 100%;
     height: 280px;
