@@ -9,6 +9,20 @@
     <link rel="stylesheet" href="./styles/style.css" />
 </head>
 <body>
+
+    <!-- NAV BAR GOES HERE -->
+    <nav>
+        <a href="index.html">Home</a> | 
+        <a href="landscapes.html">Landscapes</a> | 
+        <a href="flowers.html">Flowers</a>
+    </nav>
+
+    <main>
+        <!-- Your main gallery content stays down here -->
+    </main>
+
+</body>
+
     <div class="container">
         <h1 class="pageTitle">Welcome to the Website of Adam Bagby</h1>
 
@@ -306,24 +320,24 @@
 <section class="resourceContainer">
     <h2 class="innerTitle">Photography Showcase</h2>
 <div class="projects-grid">
-   <!-- Featured Image 1 -->
-<div class="photo-card">
-    <img src="images/IMG_1616.jpeg" alt="Bird sitting on a wooden post">
+<!-- Featured Image 1 -->
+<div class="photo-card" onclick="openLightbox('images/IMG_1616.jpeg', 'Bird sitting on a wooden post')">
+<img src="images/IMG_1616.jpeg" alt="Bird sitting on a wooden post">
 </div>
 
 <!-- Featured Image 2 -->
-<div class="photo-card">
-    <img src="images/IMG_1728.jpeg" alt="Close up of mechanical gear details">
+<div class="photo-card" onclick="openLightbox('images/IMG_1728.jpeg', 'Close up of mechanical gear details')">
+<img src="images/IMG_1728.jpeg" alt="Close up of mechanical gear details">
 </div>
 
 <!-- Featured Image 3 -->
-<div class="photo-card">
-    <img src="images/IMG_6425.jpg" alt="Scenic mountain landscape over the water">
+<div class="photo-card" onclick="openLightbox('images/IMG_1979.jpeg', 'Scenic mountain landscape over the water')">
+<img src="images/IMG_1979.jpeg" alt="Scenic mountain landscape over the water">
 </div>
 
 <!-- Featured Image 4 -->
-<div class="photo-card">
-    <img src="images/background.jpeg" alt="Aerial drone shot of coastal waters">
+<div class="photo-card" onclick="openLightbox('images/background.jpg', 'Coastal view background')">
+<img src="images/background.jpg" alt="Coastal view background">
 </div>
 
     </div>

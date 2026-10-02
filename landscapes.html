@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landscapes Gallery | My Photography</title>
+    <link rel="stylesheet" href="styles/style.css"> <!-- Make sure your path to CSS matches -->
+    <style>
+        /* Simple responsive gallery grid layout */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        nav a {
+            margin-right: 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+
+    <!-- NAV BAR GOES HERE -->
+    <nav>
+        <a href="index.html">Home</a> | 
+        <a href="landscapes.html">Landscapes</a> | 
+        <a href="flowers.html">Flowers</a>
+    </nav>
+
+    <main>
+        <!-- Your main gallery content stays down here -->
+    </main>
+
+</body>
+
+    <header>
+        <h1>Landscape Photography</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="landscapes.html">Landscapes</a>
+            <a href="flowers.html">Flowers</a>
+        </nav>
+    </header>
+    <main class="gallery-grid">
+        <!-- Make sure your images are moved inside your 'images' folder -->
+        <div class="gallery-item">
+            <img src="images/America the Beautiful.jpg" alt="America the Beautiful Landscape">
+            <p>America the Beautiful</p>
+        </div>
+        <div class="gallery-item">
+            <img src="images/Fall of Water.jpg" alt="Fall of Water Landscape">
+            <p>Fall of Water</p>
+        </div>
+        <div class="gallery-item">
+            <img src="images/Fly Me to the Moon.jpg" alt="Fly Me to the Moon Landscape">
+            <p>Fly Me to the Moon</p>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2026 Photography Portfolio</p>
+    </footer>
+
+    </body>
+</html>
