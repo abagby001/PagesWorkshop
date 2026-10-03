@@ -28,6 +28,19 @@ nav a:hover {
     color: #004fb3;
 }
 
+/* Restrict the decorative layout elements */
+img[src*="vscode"], img[src*="logo"] {
+    max-width: 120px;
+    height: auto;
+    display: inline-block;
+}
+
+/* Fix any remaining floating shape graphics */
+header img, footer img {
+    max-width: 150px;
+    height: auto;
+}
+
 /* ==========================================
    PHOTOGRAPHY SHOWCASE GRID SYSTEM
    ========================================== */
