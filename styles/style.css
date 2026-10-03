@@ -87,3 +87,69 @@ nav a:hover {
     color: #333333;
     border-top: 1px solid #f0f0f0;
 }
+
+.overlay-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    width: 100%;
+    /* This forces the card container to stay open in a clean 4:3 photo ratio */
+    aspect-ratio: 4 / 3; 
+    background-color: #f0f0f0; /* Gives a clean placeholder background while loading */
+}
+
+/* ========================================== */
+/*  FIXED PHOTO GRID & IMAGE PROPORTIONS      */
+/* ========================================== */
+
+/* Container for your photography grid elements */
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Individual card slots within the grid tracks */
+.overlay-item {
+    position: relative; /* Essential to anchor the text position */
+    overflow: hidden;
+    border-radius: 8px;
+    width: 100%;
+    aspect-ratio: 4 / 3; /* Forces a standard photo box shape so things don't flatten */
+    background-color: #f0f0f0; /* Clean loading placeholder block */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Fixed the spacing typo here */
+}
+
+/* Forces the image tag to correctly scale and fill the overlay item boundaries */
+.overlay-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Prevents your photos from stretching out of proportion */
+    display: block;
+}
+
+/* Hidden overlay text position style rules */
+.overlay-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.6); /* Semi-transparent background mask */
+    color: #ffffff;
+    padding: 15px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.overlay-text h3 {
+    margin: 0 0 5px 0;
+    font-size: 1.1rem;
+}
+
+.overlay-text p {
+    margin: 0;
+    font-size: 0.9rem;
+}
