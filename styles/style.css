@@ -166,3 +166,24 @@ header img, footer img {
     margin: 0;
     font-size: 0.9rem;
 }
+
+/* ========================================== */
+/* BRAND LOGOS & DECORATIVE GRAPHICS FIX      */
+/* ========================================== */
+
+/* Use this class for the giant VS Code icon, GitHub Octocat, etc. */
+.brand-logo {
+    max-width: 150px; /* Restricts the width so it looks crisp and professional */
+    height: auto;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 15px 0;
+}
+
+/* Use this class for small decorative accent elements like circles/shapes */
+.accent-shape {
+    max-width: 60px; /* Keeps background abstract graphics small */
+    height: auto;
+    display: inline-block;
+}
+
