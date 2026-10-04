@@ -69,21 +69,6 @@ header img, footer img {
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
 }
 
-/* Specific rules to keep decorative branding graphics under control */
-.brand-logo {
-    max-width: 150px;  /* Adjust this width to make the logo look ideal on your page */
-    height: auto;
-    object-fit: contain !important; /* Prevents it from clipping or stretching */
-    margin: 20px auto; /* Centers it nicely if it's sitting on its own line */
-    display: block;
-}
-
-.octocat-avatar {
-    max-width: 120px;  /* Keeps the GitHub icon clean and compact */
-    height: auto;
-    object-fit: contain !important;
-}
-
 .gallery-item img {
     width: 100%;
     height: 280px;
@@ -133,7 +118,7 @@ header img, footer img {
     width: 100%;
     aspect-ratio: 4 / 3; /* Forces a standard photo box shape so things don't flatten */
     background-color: #f0f0f0; /* Clean loading placeholder block */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Fixed the spacing typo here */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
 /* Forces the image tag to correctly scale and fill the overlay item boundaries */
@@ -142,7 +127,7 @@ header img, footer img {
     height: 100%;
     object-fit: cover; /* Prevents your photos from stretching out of proportion */
     display: block;
-}
+} Late 
 
 /* Hidden overlay text position style rules */
 .overlay-text {
@@ -165,19 +150,6 @@ header img, footer img {
 .overlay-text p {
     margin: 0;
     font-size: 0.9rem;
-}
-
-/* ========================================== */
-/* BRAND LOGOS & DECORATIVE GRAPHICS FIX      */
-/* ========================================== */
-
-/* Use this class for the giant VS Code icon, GitHub Octocat, etc. */
-.brand-logo {
-    max-width: 150px; /* Restricts the width so it looks crisp and professional */
-    height: auto;
-    display: inline-block;
-    vertical-align: middle;
-    margin: 15px 0;
 }
 
 /* Use this class for small decorative accent elements like circles/shapes */
@@ -227,14 +199,6 @@ header img, footer img {
     padding: 25px 20px;
     text-decoration: none;
     color: inherit;
-}
-
-/* Correctly taming your giant icon files (Fixes image_lvJM0u.png!) */
-.resourceLink img {
-    width: 70px;
-    height: 70px;
-    margin-bottom: 15px;
-    object-fit: contain;
 }
 
 .resourceLink h3 {
@@ -332,27 +296,15 @@ header img, footer img {
 /* BRAND LOGOS & DECORATIVE GRAPHICS FIX      */
 /* ========================================== */
 
-/* 1. Explicitly isolate icons inside links to override gallery rules */
+/* Explicitly target and override photo styles for small layout icons */
 .resourceLink img,
 .brand-logo,
 .octocat-avatar {
-    width: 70px !important;       /* Forces the width back to a crisp icon size */
-    height: 70px !important;      /* Forces a perfect square bounding box */
+    width: 70px !important;
+    height: 70px !important;
     max-width: 70px !important;
     max-height: 70px !important;
-    object-fit: contain !important; /* Prevents the logo vector from stretching or warping */
-    margin: 0 auto 15px auto !important; /* Centers the icon and adds breathing room above text */
-    display: block !important;
-}
-
-/* 2. Fix for the small certification icons at the bottom */
-.cert-icon-wrapper img,
-.certIcon {
-    width: 44px !important;
-    height: 44px !important;
-    max-width: 44px !important;
-    max-height: 44px !important;
     object-fit: contain !important;
-    display: inline-block !important;
-    margin: 0 !important;
+    margin: 0 auto 15px auto !important;
+    display: block !important;
 }
