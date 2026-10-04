@@ -7,7 +7,7 @@
     <title>My Portfolio Website</title>
     <link rel="icon" href="./images/siteIcon.svg" />
     <!-- 🔒 FIXED LINK: Points directly into your style folder -->
-    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
@@ -325,6 +325,27 @@
         <p class="section-description">A collection of custom photography projects and visual layouts.</p>
     </section>
 
+        <!-- PHOTOGRAPHY SHOWCASE SECTION -->
+        <section class="resourceContainer">
+            <h2 class="innerTitle">Photography Showcase</h2>
+            <div class="photo-grid">
+                
+                <div class="photo-card" onclick="openLightbox('images/IMG_1616.jpeg', 'Bird sitting on a wooden post')">
+                    <img src="images/IMG_1616.jpeg" alt="Bird sitting on a wooden post">
+                </div>
+
+                <div class="photo-card" onclick="openLightbox('images/IMG_1767.jpeg', 'Scenic Sunset over the Coast')">
+                    <img src="images/IMG_1767.jpeg" alt="Scenic Sunset over the Coast">
+                </div>
+
+                <div class="photo-card" onclick="openLightbox('images/IMG_2004.jpeg', 'Hibiscus flower in bloom')">
+                    <img src="images/IMG_2004.jpeg" alt="Hibiscus flower in bloom">
+                </div>
+
+            </div>
+        </section>
+
+
     <!-- Photography Showcase Grid Container -->
     <div class="photo-grid">
 
@@ -431,76 +452,3 @@
 <div id="lightboxCaption"></div>
 </div>
 
-<style>
-.photo-grid {
-display: grid;
-grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-gap: 16px;
-margin-top: 20px;
-}
-.photo-card {
-position: relative;
-overflow: hidden;
-border-radius: 8px;
-cursor: pointer;
-background: #f0f0f0;
-aspect-ratio: 4/3;
-}
-.photo-card img {
-width: 100%;
-height: 100%;
-object-fit: cover;
-transition: transform 0.3s ease;
-}
-.photo-card:hover img {
-transform: scale(1.05);
-}
-.lightbox {
-display: none;
-position: fixed;
-z-index: 1000;
-left: 0;
-top: 0;
-width: 100%;
-height: 100%;
-background-color: rgba(0,0,0,0.9);
-text-align: center;
-padding: 40px 20px;
-}
-.lightbox img {
-max-width: 90%;
-max-height: 80vh;
-margin-top: 5vh;
-border-radius: 4px;
-}
-.close-btn {
-position: absolute;
-top: 20px;
-right: 35px;
-color: #fff;
-font-size: 40px;
-font-weight: bold;
-cursor: pointer;
-}
-#lightboxCaption {
-color: #fff;
-margin-top: 15px;
-font-size: 1.2rem;
-}
-</style>
-
-<script>
-function openLightbox(imgSrc, captionText) {
-const modal = document.getElementById('lightboxModal');
-const modalImg = document.getElementById('lightboxImg');
-const caption = document.getElementById('lightboxCaption');
-modal.style.display = "block";
-modalImg.src = imgSrc;
-caption.innerHTML = captionText;
-}
-function closeLightbox() {
-document.getElementById('lightboxModal').style.display = "none";
-}
-</script>
-</body>
-</html>
