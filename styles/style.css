@@ -327,3 +327,32 @@ header img, footer img {
 .resume-btn:hover {
     background-color: #004fb3;
 }
+
+/* ========================================== */
+/* BRAND LOGOS & DECORATIVE GRAPHICS FIX      */
+/* ========================================== */
+
+/* 1. Explicitly isolate icons inside links to override gallery rules */
+.resourceLink img,
+.brand-logo,
+.octocat-avatar {
+    width: 70px !important;       /* Forces the width back to a crisp icon size */
+    height: 70px !important;      /* Forces a perfect square bounding box */
+    max-width: 70px !important;
+    max-height: 70px !important;
+    object-fit: contain !important; /* Prevents the logo vector from stretching or warping */
+    margin: 0 auto 15px auto !important; /* Centers the icon and adds breathing room above text */
+    display: block !important;
+}
+
+/* 2. Fix for the small certification icons at the bottom */
+.cert-icon-wrapper img,
+.certIcon {
+    width: 44px !important;
+    height: 44px !important;
+    max-width: 44px !important;
+    max-height: 44px !important;
+    object-fit: contain !important;
+    display: inline-block !important;
+    margin: 0 !important;
+}
