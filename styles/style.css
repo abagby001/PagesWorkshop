@@ -66,26 +66,29 @@ img {
     display: block;
 }
 
-/* Size down the Certifications & Badges images */
-section[class="resourceContainer"] img, 
-#resourceContainer img {
-    max-width: 120px;
-    height: auto;
-    margin-top: 15px;
+/* Tame the Codecademy certification images */
+img[src*="codecademy"] {
+    max-width: 120px !important;
+    height: auto !important;
     display: block;
+    margin: 15px 0;
 }
 
 /* Constrain the social footer images and layout */
-footer, section.resourceContainer:last-of-type {
+footer {
     display: flex;
     flex-wrap: wrap;
     gap: 15px;
     align-items: center;
+    padding: 20px 0;
 }
 
 /* Tame the giant GitHub Education icon at the bottom */
-footer img, section.resourceContainer img[src*="githubEducation"] {
-    width: 40px;
-    height: auto;
+footer img, 
+img[src*="githubEducation"] {
+    width: 60px !important;
+    height: auto !important;
+    display: inline-block;
     vertical-align: middle;
 }
+
