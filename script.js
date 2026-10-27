@@ -116,22 +116,24 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // 5. DARK MODE THEME SWITCHER LOGIC
+   // 1. Dark Mode Theme Switcher Logic (Scoped inside DOMContentLoaded)
+document.addEventListener("DOMContentLoaded", () => {
+    // ... your existing tagButtons.forEach logic up here ...
+
     const themeBtn = document.createElement("button");
     themeBtn.className = "theme-toggle-btn";
     themeBtn.setAttribute("aria-label", "Toggle dark theme");
-    themeBtn.innerHTML = "🌙"; 
+    themeBtn.innerHTML = "🌙";
     document.body.appendChild(themeBtn);
 
     const currentTheme = localStorage.getItem("portfolio-theme");
     if (currentTheme === "dark") {
         document.body.classList.add("dark-theme");
-        themeBtn.innerHTML = "☀️"; 
+        themeBtn.innerHTML = "☀️";
     }
 
     themeBtn.addEventListener("click", () => {
         document.body.classList.toggle("dark-theme");
-        
         let theme = "light";
         if (document.body.classList.contains("dark-theme")) {
             theme = "dark";
@@ -139,12 +141,13 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
             themeBtn.innerHTML = "🌙";
         }
-        
         localStorage.setItem("portfolio-theme", theme);
-    });
-});
+    }); // 👈 MAKE SURE THIS CLOSING BRACKET AND PARENTHESIS SITS RIGHT HERE ON LINE 145
 
-// js/script.js
+// ==========================================
+// 2. Global Lightbox Modal Functions (Independent Scope)
+// ==========================================
+
 function openLightbox(imageSrc, titleText) {
     const modal = document.getElementById("lightboxModal");
     const modalImg = document.getElementById("lightboxImg");
