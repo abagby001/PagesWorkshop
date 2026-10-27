@@ -92,3 +92,11 @@ img[src*="githubEducation"] {
     vertical-align: middle;
 }
 
+.photo-card img {
+    width: 100%;
+    height: 250px;       /* Or whatever fixed height you are currently using */
+    object-fit: cover;   /* 👈 This prevents squishing and crops cleanly like a gallery */
+    display: block;
+}
+
+
