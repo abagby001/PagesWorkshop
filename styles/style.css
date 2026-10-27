@@ -139,9 +139,60 @@ img[src*="githubEducation"] {
     color: #bbb;
 }
 
+/* Fullscreen dark overlay wrapper */
+.lightbox-modal {
+    display: none;      /* Hidden by default, toggled via JavaScript */
+    position: fixed;    /* Sits on top of the entire screen */
+    z-index: 9999;      /* Ensures it floats above footers and grids */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); /* Dark backdrop */
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* The actual responsive enlarged image */
+.lightbox-content {
+    max-width: 85%;
+    max-height: 80%;
+    object-fit: contain; /* Keeps the photo's perfect layout proportions */
+    border-radius: 4px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    animation: zoomIn 0.25s ease;
+}
+
+/* Close symbol button */
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.lightbox-close:hover {
+    color: #bbb;
+}
+
+/* Photo caption text text */
+.lightbox-caption {
+    color: #fff;
+    margin-top: 15px;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+    text-align: center;
+}
+
 @keyframes zoomIn {
     from { transform: scale(0.95); opacity: 0; }
     to { transform: scale(1); opacity: 1; }
 }
+
 
 

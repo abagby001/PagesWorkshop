@@ -167,4 +167,4 @@ document.addEventListener("keydown", function(event) {
     if (event.key === "Escape") {
         closeLightbox();
     }
-});
+}); // End of keydown event listener//
