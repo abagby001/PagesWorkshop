@@ -359,17 +359,13 @@
         </div>
     </footer>
 
-    <!-- Lightbox Modal Overlay -->
-  <!-- 👈 INSERT THIS LINE RIGHT HERE: -->
-    <img id="lightboxImg" class="lightbox-content" src="" alt="Enlarged Photo">
-<div id="lightboxModal" class="lightbox-modal" onclick="closeLightbox()">
+       <!-- Lightbox Modal Overlay -->
+    <div id="lightboxModal" class="lightbox-modal" onclick="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightboxImg" class="lightbox-content" src="" alt="Enlarged Photo">
+        <div id="lightboxCaption" class="lightbox-caption"></div>
+    </div>
 
-    <!-- 2. Change class="close-btn" to class="lightbox-close" -->
-    <span class="lightbox-close">&times;</span>
-    
-    <img id="lightboxImg" class="lightbox-content" src="" alt="Enlarged Photo">
-    <div id="lightboxCaption" class="lightbox-caption"></div>
-</div>
 
 
     <!-- Link to your external JS file -->
