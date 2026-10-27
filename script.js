@@ -143,3 +143,25 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.setItem("portfolio-theme", theme);
     });
 });
+
+// js/script.js
+function openLightbox(imageSrc, titleText) {
+    const modal = document.getElementById("lightboxModal");
+    const modalImg = document.getElementById("lightboxImg");
+    const captionText = document.getElementById("lightboxCaption");
+    
+    modal.style.display = "flex";
+    modalImg.src = imageSrc;
+    modalImg.alt = titleText;
+    captionText.innerText = titleText;
+}
+
+function closeLightbox() {
+    document.getElementById("lightboxModal").style.display = "none";
+}
+
+document.addEventListener("keydown", function(event) {
+    if (event.key === "Escape") {
+        closeLightbox();
+    }
+});
