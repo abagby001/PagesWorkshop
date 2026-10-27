@@ -360,10 +360,16 @@
     </footer>
 
     <!-- Lightbox Modal Overlay -->
-<div id="lightboxModal" class="lightbox" onclick="closeLightbox()">
-<span class="close-btn">&times;</span>
-<div id="lightboxCaption"></div>
+<!-- 1. Change class="lightbox" to class="lightbox-modal" -->
+<div id="lightboxModal" class="lightbox-modal" onclick="closeLightbox()">
+    
+    <!-- 2. Change class="close-btn" to class="lightbox-close" -->
+    <span class="lightbox-close">&times;</span>
+    
+    <img id="lightboxImg" class="lightbox-content" src="" alt="Enlarged Photo">
+    <div id="lightboxCaption" class="lightbox-caption"></div>
 </div>
+
 
     <!-- Link to your external JS file -->
     <script src="js/script.js"></script>
