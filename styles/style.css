@@ -194,5 +194,101 @@ img[src*="githubEducation"] {
     to { transform: scale(1); opacity: 1; }
 }
 
+/* ==========================================================================
+   Centered Top Navigation Bar Rules
+   ========================================================================== */
+.main-header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: #1a1a1a; /* Dark sleek header bar */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+}
+
+.top-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  padding: 15px 0;
+}
+
+.nav-item {
+  text-decoration: none;
+  color: #aaaaaa;
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+  padding: 5px 0;
+  border-bottom: 2px solid transparent;
+}
+
+.nav-item:hover, .nav-item.active {
+  color: #ffffff;
+  border-bottom: 2px solid #0076ff; /* Clean blue accent underline */
+}
+
+/* ==========================================================================
+   Floating Interactive Rotating Side Social Tab Rules
+   ========================================================================== */
+.floating-social-tab {
+  position: fixed;
+  left: -145px; /* Tucks the link text safely out of view by default */
+  top: 25%;
+  display: flex;
+  align-items: center;
+  background: #111111;
+  border: 1px solid #333333;
+  color: #ffffff;
+  padding: 15px 12px;
+  border-radius: 0 10px 10px 0;
+  transition: left 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  z-index: 9999;
+}
+
+.social-trigger {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-weight: bold;
+  font-size: 0.85rem;
+  color: #0076ff;
+  letter-spacing: 1.5px;
+  padding-right: 6px;
+  cursor: default;
+}
+
+.social-links-container {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-left: 15px;
+}
+
+.social-link {
+  color: #cccccc;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: inline-block;
+  transition: transform 0.5s ease-in-out, color 0.3s;
+}
+
+/* Hover Effects: Slide the container tab completely out into view */
+.floating-social-tab:hover {
+  left: 0;
+  box-shadow: 6px 0 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Hover Effects: Spin all individual text link elements 360 degrees smoothly */
+.floating-social-tab:hover .social-link {
+  transform: rotate(360deg);
+}
+
+.social-link:hover {
+  color: #0076ff;
+}
+
 
 
